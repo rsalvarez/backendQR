@@ -18,8 +18,7 @@ export const getBag = async( req: Request , res: Response ) => {
 
 export const setEstadoNotifBag = async (req: Request , res: Response ) => {
     const { id } = req.params;
-    console.log("setEstadoNotifBag");
-    console.log(req.params);
+    
     const bag = await TMovimientoBag.update( {
         notificado : 'S'
     },
@@ -157,7 +156,7 @@ export const setDatosBug = async (req: Request, res:Response) => {
             }
 
             texto = texto.replace("#sysdate#", fechaStr);
-            texto = texto.replace("#Eco#", bol.ecoaliado.nombre);
+            texto = texto.replace("#Eco#", bol.ecoaliado.nombre + " / " + bol.ecoaliado.apellido );
             texto = texto.replace("#kg#", "" + req.query.kg + "" );
             texto = texto.replace("#cv-dir#", ptoVenta.nombre + '  calle ' + ptoVenta.calle  + ' ' + ptoVenta.numero );
             
